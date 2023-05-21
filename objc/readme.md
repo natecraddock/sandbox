@@ -38,7 +38,7 @@ This also depends on my [ziglua](https://github.com/natecraddock/ziglua) library
 
 To use
 ```shell
-$ zig build
+$ zig build -fsummary
 $ mv zig-out/lib/libpboard.dylib pboard.so
 $ lua
 > pboard = require 'pboard'

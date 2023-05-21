@@ -3,7 +3,7 @@
 #include <lua/lua.h>
 #include <lua/lauxlib.h>
 
-int copy(lua_State *L) {
+int set(lua_State *L) {
     const char *str = luaL_checkstring(L, 1);
 
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
@@ -15,7 +15,7 @@ int copy(lua_State *L) {
 }
 
 const luaL_Reg fns[] = {
-    { "copy", copy },
+    { "set", set },
     { NULL, NULL },
 };
 

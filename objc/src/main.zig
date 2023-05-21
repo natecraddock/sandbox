@@ -13,12 +13,12 @@ export fn luaopen_pboard(state: *ziglua.LuaState) i32 {
 }
 
 const funcs = [_]ziglua.FnReg{
-    .{ .name = "copy", .func = ziglua.wrap(copy) },
-    .{ .name = "paste", .func = ziglua.wrap(paste) },
+    .{ .name = "set", .func = ziglua.wrap(set) },
+    .{ .name = "get", .func = ziglua.wrap(get) },
     .{ .name = "clear", .func = ziglua.wrap(clear) },
 };
 
-fn copy(lua: *Lua) i32 {
+fn set(lua: *Lua) i32 {
     const str = lua.checkBytes(1);
 
     // Get a reference to the NSPasteboard class
@@ -40,7 +40,7 @@ fn copy(lua: *Lua) i32 {
     return 1;
 }
 
-fn paste(lua: *Lua) i32 {
+fn get(lua: *Lua) i32 {
     // Get a reference to the NSPasteboard class
     const NSPasteboard = objc.getClass("NSPasteboard");
 

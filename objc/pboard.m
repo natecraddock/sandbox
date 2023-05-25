@@ -8,7 +8,7 @@ int set(lua_State *L) {
 
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
     [pboard clearContents];
-    [pboard setString:[NSString stringWithCString:str encoding:NSUTF8StringEncoding]
+    [pboard setString:[NSString stringWithUTF8String:str]
             forType:NSPasteboardTypeString];
 
     return 0;
